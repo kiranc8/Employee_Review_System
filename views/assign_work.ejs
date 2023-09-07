@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/assign_work.css" />
+
+<div class="wrapper">
+  <div id="main-div">
+    <h1>Assign Review to Employees</h1>
+    <hr />
+    <form action="/review/createReview" method="post">
+      <div class="form-group">
+        <label for="recipient">Recipient:</label>
+        <select name="recipient" id="recipient">
+          <% for (let user of users) { %>
+          <option value="<%= user.id %>"><%= user.name %></option>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="reviewer">Reviewer:</label>
+        <select name="reviewer" id="reviewer">
+          <% for (let user of users) { %>
+          <option value="<%= user.id %>"><%= user.name %></option>
+          <% } %>
+        </select>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

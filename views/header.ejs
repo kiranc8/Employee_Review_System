@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your meta tags and other head content here -->
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-header">
+            <div class="nav-logo">
+                <i class="fa-sharp fa-solid fa-people-arrows"></i>
+                <span>Employee Review System</span>
+            </div>
+            <ul class="nav-nav-links">
+                <% if (locals.user) { %>
+                    <% if (locals.user.permission == 'admin') { %>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/review/assignWork">Assign Work</a></li>
+                        <li><a href="/employee/home">Employee Section</a></li>
+                    <% } %>
+                    <!-- <li class="nav-profile">
+                        <span>Hello <%= user.name %></span>
+                    </li> -->
+                    <li><a href="/users/Signout">Sign Out</a></li>
+                <% } else { %>
+                    <li><a href="/users/Signin">Login</a></li>
+                    <li><a href="/users/Signup">Register</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
